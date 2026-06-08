@@ -1,0 +1,34 @@
+# corpus_manifest.lock
+# SHA-256 checksums and quality gate records for all bundled artifacts.
+# Generated on staging machine after fine-tuning. DO NOT EDIT MANUALLY.
+# Format: artifact=<path> sha256=<hex> license=<identifier>
+#
+# Quality gate log:
+#   Run 1: Pending — checkpoint not yet produced.
+#
+# NOTE: This file will be populated by scripts/fetch_corpus.sh and
+# scripts/verify_checkpoint.py during the Phase 2 staging machine run.
+# Placeholder entries below must be replaced with real checksums before
+# the OCI image is built.
+
+# ── Corpus artifacts ──────────────────────────────────────────────────────────
+# artifact=corpus/raw/vulgate.txt sha256=PENDING license=public-domain
+# artifact=corpus/raw/perseus_texts.tar.gz sha256=PENDING license=cc-by-sa-3.0
+# artifact=corpus/raw/leipzig_lat.zip sha256=PENDING license=cc-by
+# artifact=corpus/spot_check.tsv sha256=PENDING license=internal
+
+# ── Base model weights ────────────────────────────────────────────────────────
+# artifact=models/mt5-small-base/pytorch_model.bin sha256=PENDING license=apache-2.0
+# artifact=models/mt5-small-base/tokenizer.json sha256=PENDING license=apache-2.0
+
+# ── Fine-tuned checkpoint ─────────────────────────────────────────────────────
+# artifact=models/mt5-latin/pytorch_model.bin sha256=PENDING license=internal
+# artifact=models/mt5-latin/tokenizer.json sha256=PENDING license=internal
+
+# ── Font files ────────────────────────────────────────────────────────────────
+# artifact=static/fonts/FreeSerif.ttf sha256=PENDING license=gpl-font-exception
+# artifact=static/fonts/DejaVuSans.ttf sha256=PENDING license=dejavu
+
+# ── Quality gate record ───────────────────────────────────────────────────────
+# quality_gate_run=1 date=PENDING operator=PENDING spot_check=PENDING/50
+# quality_gate_chrf_en_la=PENDING quality_gate_chrf_la_en=PENDING result=PENDING

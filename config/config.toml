@@ -1,0 +1,16 @@
+# ==============================================================================
+# config.toml — Active deployment configuration
+# Edit this file to configure the application for your deployment.
+# See config.toml.example for documentation of every key.
+# ==============================================================================
+
+[server]
+port = 8080
+session_timeout_minutes = 60
+
+[pdf]
+paper_size = "A4"
+margin_mm = 20
+
+[tts]
+output_mode = "playback"

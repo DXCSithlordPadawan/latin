@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Translate — Latin Translator{% endblock %}
+{% block content %}
+<section class="translate-panel">
+  <h2>Translate</h2>
+
+  <form method="post" action="/translate" id="translate-form" novalidate>
+    <div class="form-group">
+      <label for="direction-select">Direction:</label>
+      <select id="direction-select" name="direction" aria-label="Translation direction">
+        <option value="en-la">English → Latin</option>
+        <option value="la-en">Latin → English</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="source-text">Source text:</label>
+      <textarea id="source-text" name="text" rows="6" cols="60"
+                maxlength="4096"
+                aria-describedby="source-hint"
+                required></textarea>
+      <span id="source-hint" class="hint">Maximum 512 tokens.</span>
+    </div>
+
+    <div class="form-group">
+      <label>
+        <input type="checkbox" name="barbarian" value="1" id="barbarian-check"
+               aria-label="Enable Barbarian Mode">
+        Barbarian Mode
+      </label>
+    </div>
+
+    <button type="submit" aria-label="Translate text">Translate</button>
+  </form>
+
+  {% if output is defined %}
+  <section class="result" aria-label="Translation result">
+    <h3>Result</h3>
+    <p class="result-text">{{ output }}</p>
+    {% if used_fallback %}
+    <p class="fallback-notice" role="alert">
+      Some tokens were resolved via Whitaker's Words morphological fallback.
+    </p>
+    {% endif %}
+    {% if modified_by_sanitiser %}
+    <p class="sanitiser-notice" role="alert">Input was sanitised before translation.</p>
+    {% endif %}
+
+    <!-- Feedback controls (PRD §4.4 Translation Feedback) -->
+    <form method="post" action="/feedback" class="feedback-form">
+      <input type="hidden" name="source" value="{{ source|truncate(64, killwords=True) }}">
+      <input type="hidden" name="output" value="{{ output|truncate(64, killwords=True) }}">
+      <input type="hidden" name="direction" value="{{ direction }}">
+      <input type="hidden" name="level" value="{{ level }}">
+      <button type="submit" name="rating" value="1"
+              aria-label="Rate translation helpful">👍</button>
+      <button type="submit" name="rating" value="-1"
+              aria-label="Rate translation unhelpful">👎</button>
+    </form>
+
+    <!-- TTS controls -->
+    <form method="post" action="/tts" class="tts-form">
+      <input type="hidden" name="text" value="{{ output }}">
+      <button type="submit" aria-label="Listen to translation (text-to-speech)">
+        🔊 Listen
+      </button>
+    </form>
+
+    <!-- PDF generation -->
+    <form method="post" action="/pdf" class="pdf-form">
+      <input type="hidden" name="text" value="{{ output }}">
+      <input type="hidden" name="content_type" value="workbook">
+      <button type="submit" aria-label="Download translation as PDF workbook">
+        📄 Download Workbook PDF
+      </button>
+    </form>
+  </section>
+  {% endif %}
+</section>
+{% endblock %}

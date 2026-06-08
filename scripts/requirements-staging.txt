@@ -1,0 +1,29 @@
+# Staging machine dependencies — Python 3.11.x only.
+# Do NOT install these on the air-gapped host.
+# Pin exact versions for reproducible fine-tuning runs.
+
+# Core ML stack
+torch==2.2.2
+transformers==4.40.2
+datasets==2.19.1
+tokenizers==0.19.1
+accelerate==0.29.3
+sentencepiece==0.2.0
+
+# Evaluation
+sacrebleu==2.4.2
+
+# Corpus utilities
+requests==2.31.0
+beautifulsoup4==4.12.3
+lxml==5.2.1
+
+# Data handling
+pandas==2.2.2
+numpy==1.26.4
+
+# YAML config
+pyyaml==6.0.1
+
+# Misc
+tqdm==4.66.2

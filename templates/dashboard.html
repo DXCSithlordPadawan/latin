@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Latin Translator{% endblock %}
+{% block content %}
+<section>
+  <h2>Adaptive Learning Dashboard</h2>
+
+  <h3>Word Friction</h3>
+  <p>Words that have caused repeated translation failures for your profile will appear here.</p>
+  <table id="friction-table">
+    <thead>
+      <tr>
+        <th scope="col">Word</th>
+        <th scope="col">Direction</th>
+        <th scope="col">Fail Count</th>
+        <th scope="col">Last Seen</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if friction_words %}
+        {% for w in friction_words %}
+        <tr>
+          <td>{{ w.word }}</td>
+          <td>{{ w.direction }}</td>
+          <td>{{ w.fail_count }}</td>
+          <td>{{ w.last_seen }}</td>
+        </tr>
+        {% endfor %}
+      {% else %}
+      <tr><td colspan="4">No friction data yet.</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+
+  <h3>Translation Feedback</h3>
+  <p>Your thumbs-up / thumbs-down ratings are shown below.</p>
+  <table id="feedback-table">
+    <thead>
+      <tr>
+        <th scope="col">Source</th>
+        <th scope="col">Output</th>
+        <th scope="col">Direction</th>
+        <th scope="col">Level</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if feedback_records %}
+        {% for f in feedback_records %}
+        <tr>
+          <td>{{ f.source_text }}</td>
+          <td>{{ f.output_text }}</td>
+          <td>{{ f.direction }}</td>
+          <td>{{ f.level }}</td>
+          <td>{{ '+1' if f.rating == 1 else '−1' }}</td>
+          <td>{{ f.recorded_at }}</td>
+        </tr>
+        {% endfor %}
+      {% else %}
+      <tr><td colspan="6">No feedback recorded yet.</td></tr>
+      {% endif %}
+    </tbody>
+  </table>
+
+  <h3>Clear Telemetry</h3>
+  <form method="post" action="/clear-telemetry"
+        onsubmit="return confirm('Permanently delete ALL telemetry for this profile? This cannot be undone.')">
+    <button type="submit" aria-label="Clear all telemetry for this profile">
+      Clear Telemetry
+    </button>
+  </form>
+</section>
+{% endblock %}

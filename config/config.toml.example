@@ -1,0 +1,47 @@
+# ==============================================================================
+# config.toml.example — Canonical reference for all application configuration
+# Copy this file to config.toml for a new deployment.
+# Every key is listed with its type, default, valid range, and description.
+# This file must remain in sync with the application code at all times.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# [server] — HTTP server settings
+# ------------------------------------------------------------------------------
+[server]
+
+# Port the loopback HTTP server listens on.
+# Type: integer  Default: 8080  Range: 1024–65535
+port = 8080
+
+# Idle session expiry in minutes. Sessions that receive no authenticated
+# HTTP request within this window are invalidated; the next request receives
+# HTTP 401.
+# Type: integer  Default: 60  Range: 5–1440
+session_timeout_minutes = 60
+
+# ------------------------------------------------------------------------------
+# [pdf] — PDF generation settings
+# ------------------------------------------------------------------------------
+[pdf]
+
+# Output paper size for all generated PDFs.
+# Type: string  Default: "A4"  Accepted: "A4", "Letter"
+paper_size = "A4"
+
+# Margin width in millimetres applied to all four sides of every generated PDF.
+# Type: integer  Default: 20  Range: 10–40
+margin_mm = 20
+
+# ------------------------------------------------------------------------------
+# [tts] — Text-to-speech settings
+# ------------------------------------------------------------------------------
+[tts]
+
+# Audio output behaviour for TTS synthesis.
+#   playback — audio rendered to system audio device; no file written to disk.
+#   export   — audio served as HTTP download (Content-Disposition: attachment);
+#              no file written to container filesystem.
+#   both     — simultaneously plays to audio device AND serves HTTP download.
+# Type: string  Default: "playback"  Accepted: "playback", "export", "both"
+output_mode = "playback"

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Result — Latin Translator{% endblock %}
+{% block content %}
+<section class="result-page">
+  <h2>Translation Result</h2>
+  <div class="result-box">
+    <p class="result-text" aria-label="Translation output">{{ output }}</p>
+  </div>
+  {% if used_fallback %}
+  <p class="fallback-notice" role="alert">
+    Some tokens were resolved via Whitaker's Words morphological fallback.
+  </p>
+  {% endif %}
+  {% if modified_by_sanitiser %}
+  <p class="sanitiser-notice" role="alert">Input was sanitised before translation.</p>
+  {% endif %}
+
+  <form method="post" action="/feedback" class="feedback-form">
+    <input type="hidden" name="source" value="{{ source|truncate(64, killwords=True) }}">
+    <input type="hidden" name="output" value="{{ output|truncate(64, killwords=True) }}">
+    <input type="hidden" name="direction" value="{{ direction }}">
+    <input type="hidden" name="level" value="{{ level }}">
+    <button type="submit" name="rating" value="1" aria-label="Rate translation helpful">👍</button>
+    <button type="submit" name="rating" value="-1" aria-label="Rate translation unhelpful">👎</button>
+  </form>
+
+  <form method="post" action="/tts" class="tts-form">
+    <input type="hidden" name="text" value="{{ output }}">
+    <button type="submit" aria-label="Listen to translation">🔊 Listen</button>
+  </form>
+
+  <form method="post" action="/pdf" class="pdf-form">
+    <input type="hidden" name="text" value="{{ output }}">
+    <input type="hidden" name="content_type" value="workbook">
+    <button type="submit" aria-label="Download PDF workbook">📄 Download Workbook PDF</button>
+  </form>
+
+  <p><a href="/">← New translation</a></p>
+</section>
+{% endblock %}

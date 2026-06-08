@@ -1,0 +1,279 @@
+/* Air-Gapped Latin Translator — main stylesheet
+   WCAG 2.1 Level AA contrast (4.5:1 normal text, 3:1 large text)
+   No external fonts or CDN resources. */
+
+:root {
+  --colour-bg: #ffffff;
+  --colour-surface: #f5f5f5;
+  --colour-border: #767676;
+  --colour-text: #1a1a1a;        /* contrast 15.3:1 on white */
+  --colour-text-muted: #595959;  /* contrast 7.0:1 on white */
+  --colour-primary: #1a4d8f;     /* contrast 7.5:1 on white */
+  --colour-primary-hover: #0e3265;
+  --colour-error: #c00000;       /* contrast 5.9:1 on white */
+  --colour-warning: #7a4f00;
+  --colour-success: #1a6b1a;
+  --font-sans: system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-mono: Consolas, "Courier New", monospace;
+  --radius: 4px;
+  --spacing: 1rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  background: var(--colour-bg);
+  color: var(--colour-text);
+}
+
+/* ── Skip link ─────────────────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 100;
+  background: var(--colour-primary);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+}
+
+/* ── Header ────────────────────────────────────────────────────────────── */
+header[role="banner"] {
+  background: var(--colour-primary);
+  color: #ffffff;
+  padding: 0.75rem var(--spacing);
+}
+
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.site-title a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.site-title a:hover,
+.site-title a:focus {
+  text-decoration: underline;
+}
+
+/* ── Level selector ────────────────────────────────────────────────────── */
+.level-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.level-selector label {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.level-selector select {
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  background: #fff;
+  color: var(--colour-text);
+}
+
+/* ── Navigation ────────────────────────────────────────────────────────── */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-list a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  text-decoration: underline;
+}
+
+/* ── Status badge ──────────────────────────────────────────────────────── */
+.status-badge {
+  font-size: 0.85rem;
+  background: #ffe082;
+  color: #3e2000;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius);
+}
+
+/* ── Main content ──────────────────────────────────────────────────────── */
+main {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 var(--spacing);
+}
+
+h2 { font-size: 1.5rem; margin-top: 0; }
+h3 { font-size: 1.15rem; }
+
+/* ── Forms ─────────────────────────────────────────────────────────────── */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  max-width: 600px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  background: var(--colour-bg);
+  color: var(--colour-text);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.hint {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--colour-text-muted);
+  margin-top: 0.2rem;
+}
+
+button[type="submit"],
+button {
+  padding: 0.5rem 1.25rem;
+  background: var(--colour-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+button:hover,
+button:focus {
+  background: var(--colour-primary-hover);
+  outline: 3px solid #ffd600;
+  outline-offset: 2px;
+}
+
+/* ── Result box ────────────────────────────────────────────────────────── */
+.result-box {
+  background: var(--colour-surface);
+  border: 1px solid var(--colour-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.result-text {
+  margin: 0;
+  word-break: break-word;
+}
+
+/* ── Notices ────────────────────────────────────────────────────────────── */
+.fallback-notice,
+.sanitiser-notice {
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+}
+
+.fallback-notice {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  color: var(--colour-warning);
+}
+
+.sanitiser-notice {
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  color: var(--colour-success);
+}
+
+/* ── Feedback / TTS / PDF inline forms ─────────────────────────────────── */
+.feedback-form,
+.tts-form,
+.pdf-form {
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  margin-right: 1rem;
+}
+
+.feedback-form button {
+  font-size: 1.25rem;
+  padding: 0.25rem 0.6rem;
+  background: var(--colour-surface);
+  color: var(--colour-text);
+  border: 1px solid var(--colour-border);
+}
+
+/* ── Tables ─────────────────────────────────────────────────────────────── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d0d0d0;
+}
+
+thead th {
+  background: var(--colour-surface);
+  font-weight: 700;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--colour-surface);
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+footer {
+  margin-top: 3rem;
+  padding: 1rem var(--spacing);
+  font-size: 0.85rem;
+  color: var(--colour-text-muted);
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}

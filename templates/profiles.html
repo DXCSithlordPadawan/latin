@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Profiles — Latin Translator{% endblock %}
+{% block content %}
+<section>
+  <h2>User Profiles</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Last Login</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in profiles %}
+      <tr>
+        <td>{{ p.display_name }}</td>
+        <td>{{ p.last_login or 'Never' }}</td>
+        <td>
+          <form method="post" action="/profile/select" style="display:inline">
+            <input type="hidden" name="slug" value="{{ p.slug }}">
+            <button type="submit" aria-label="Select profile {{ p.display_name }}">Select</button>
+          </form>
+          <form method="post" action="/profile/delete" style="display:inline"
+                onsubmit="return confirm('Permanently delete profile {{ p.display_name }}? This cannot be undone.')">
+            <input type="hidden" name="slug" value="{{ p.slug }}">
+            <button type="submit" aria-label="Delete profile {{ p.display_name }}">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="3">No profiles found.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h3>Create Profile</h3>
+  <form method="post" action="/profile/create">
+    <label for="new-profile-name">Display name:</label>
+    <input type="text" id="new-profile-name" name="display_name" required
+           aria-describedby="name-hint">
+    <span id="name-hint" class="hint">Alphanumeric, spaces allowed.</span>
+    <button type="submit" aria-label="Create new profile">Create</button>
+  </form>
+</section>
+{% endblock %}

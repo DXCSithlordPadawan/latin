@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Air-Gapped Latin Translator{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+  <header role="banner">
+    <div class="header-inner">
+      <h1 class="site-title"><a href="/">Latin Translator</a></h1>
+
+      <!-- Operation status badge (requires JS; absent when JS disabled) -->
+      <span id="status-badge" class="status-badge" aria-live="polite" hidden></span>
+
+      <!-- Level selector — persistent on all pages -->
+      <nav class="level-selector" aria-label="Output level selector">
+        <form method="post" action="/set-level" id="level-form">
+          <label for="level-select">Level:</label>
+          <select id="level-select" name="level" aria-label="Select output level"
+                  onchange="document.getElementById('level-form').submit()">
+            <option value="1" {% if current_level == 1 %}selected{% endif %}>Level 1 — Beginner</option>
+            <option value="2" {% if current_level == 2 %}selected{% endif %}>Level 2 — Elementary</option>
+            <option value="3" {% if current_level == 3 %}selected{% endif %}>Level 3 — Primary</option>
+            <option value="4" {% if current_level == 4 %}selected{% endif %}>Level 4 — Intermediate</option>
+            <option value="5" {% if current_level == 5 %}selected{% endif %}>Level 5 — Secondary</option>
+            <option value="6" {% if current_level == 6 %}selected{% endif %}>Level 6 — Advanced</option>
+            <option value="7" {% if current_level == 7 %}selected{% endif %}>Barbarian Mode</option>
+          </select>
+        </form>
+      </nav>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="/">Translate</a></li>
+          <li><a href="/profiles">Profiles</a></li>
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>Air-Gapped Latin Translator v1.0.0 — Offline · Secure · FIPS 140-3</p>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>

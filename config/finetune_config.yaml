@@ -1,0 +1,32 @@
+# Fine-tuning hyperparameters for mT5-small classical Latin checkpoint.
+# Version-controlled on staging machine only. Do not deploy to air-gapped host.
+
+model_name: "google/mt5-small"
+model_version: "1.0.0"
+output_dir: "models/mt5-latin-1.0.0"
+
+training:
+  num_train_epochs: 3
+  per_device_train_batch_size: 8
+  per_device_eval_batch_size: 8
+  learning_rate: 5.0e-4
+  weight_decay: 0.01
+  warmup_steps: 500
+  max_source_length: 128
+  max_target_length: 128
+  fp16: false          # Set true if NVIDIA GPU with VRAM ≥8 GB available
+  gradient_accumulation_steps: 4
+  save_total_limit: 2
+  evaluation_strategy: "epoch"
+  save_strategy: "epoch"
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_loss"
+
+data:
+  train_file: "corpus/train_split.jsonl"
+  validation_file: "corpus/validation_split.tsv"
+  spot_check_file: "corpus/spot_check.tsv"
+
+quality_gate:
+  spot_check_min_pass: 40       # out of 50 pairs (80%)
+  chrf_min_score: 45.0          # both EN→LA and LA→EN directions

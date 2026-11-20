@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Import — Latin Translator{% endblock %}
+{% block content %}
+<section>
+  <h2>Import Text</h2>
+  <p>Import a .txt, .md or .csv file. Words the dictionary does not know are added to your word-friction list.
+     Files are processed in chunks of 50,000 characters; each chunk is saved on its own.</p>
+  {% if error %}<p class="fallback-notice" role="alert" id="import-error">{{ error }}</p>{% endif %}
+  {% if summary %}
+  <p role="status">Chunk {{ summary.chunks_committed }} of {{ summary.chunks_total }} processed;
+     {{ summary.words_recorded }} unknown word(s) recorded.</p>
+  {% if not summary.dictionary_loaded %}
+  <p class="fallback-notice" role="alert">The dictionary data is not installed, so no words could be checked and none were recorded.</p>
+  {% endif %}
+  {% if summary.failed_chunk %}
+  <p class="fallback-notice" role="alert">Stopped at chunk {{ summary.failed_chunk }}. Earlier chunks were kept.</p>
+  {% endif %}
+  {% endif %}
+  <form method="post" action="/import" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label for="import-file">File:</label>
+    <input type="file" id="import-file" name="file" accept=".txt,.md,.csv" required>
+    <label><input type="checkbox" name="confirm_large" value="1" id="confirm-large"> I understand that files over 100 MB take a long time</label>
+    <button type="submit" aria-label="Import the file">Import</button>
+  </form>
+</section>
+{% endblock %}

@@ -1,1 +1,12 @@
-test
+# Runtime dependencies for the OCI image (installed offline with --require-hashes).
+# NOT YET USABLE: versions and hashes are generated on the staging machine, for example
+#   pip download -r this-list.txt -d wheels/ && pip hash wheels/*.whl
+# or pip-compile --generate-hashes. Each line then reads: name==version --hash=sha256:<hex>
+# Until then the image build fails closed. Package names (from the imports in app.py and engine/):
+flask
+fpdf2
+pyttsx3
+tomli
+transformers
+torch
+sentencepiece

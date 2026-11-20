@@ -1,0 +1,67 @@
+# ==============================================================================
+# Containerfile — Air-Gapped Latin Translator OCI Image
+#
+# Build on a network-connected staging machine only.
+# The resulting image is exported as a tarball and transferred to the
+# air-gapped host via write-protected physical media.
+#
+# Base: Red Hat UBI 9 (decision 2026-11-20): OpenSSL 3 with the FIPS provider module.
+# Execution: rootless Podman; --network=none enforced at runtime (see DOC-09, run line G-10)
+# ==============================================================================
+
+# Pin by digest before a release build (CONFIRM): FROM registry.access.redhat.com/ubi9/ubi@sha256:<digest>
+FROM registry.access.redhat.com/ubi9/ubi:latest
+
+# ── System packages ────────────────────────────────────────────────────────
+# python3.11 and openssl come from the UBI repositories (reachable on the staging machine).
+# espeak-ng is NOT in UBI or RHEL repositories: it is collected on staging as RPMs (with dependencies)
+# into rpms/, listed in corpus_manifest.lock, and installed offline. A missing rpms/ fails the build.
+COPY rpms/ /tmp/rpms/
+RUN dnf install -y --setopt=install_weak_deps=0 python3.11 python3.11-pip openssl && \
+    dnf install -y --disablerepo='*' /tmp/rpms/*.rpm && \
+    dnf clean all && rm -rf /tmp/rpms /var/cache/dnf
+
+# ── FIPS 140-3 assertion ───────────────────────────────────────────────────
+# Build fails if OpenSSL FIPS provider cannot be enabled.
+# The provider module ships with RHEL 9 OpenSSL (CONFIRM it is present in the ubi9 image). A base without it
+# fails here on purpose; there is no bypass (DOC-11, FR-OPS-01). Whether the kernel is in FIPS mode is a HOST setting.
+RUN openssl list -providers -provider fips -provider base 2>/dev/null | grep -q 'name: OpenSSL FIPS Provider' || (echo 'ERROR: FIPS provider not available'; exit 1)
+RUN python3.11 -c "import ssl; print(ssl.OPENSSL_VERSION)"
+
+# ── Application user (rootless, isolated UID) ──────────────────────────────
+RUN useradd --uid 10001 --gid 0 --home /home/appuser --create-home --shell /bin/bash appuser
+
+# ── Application directory ──────────────────────────────────────────────────
+WORKDIR /app
+COPY --chown=appuser:0 . /app/
+
+# ── Python dependencies ────────────────────────────────────────────────────
+# Offline, hash-checked, no fallback to the network (FR-OPS-01, NFR-12). requirements-runtime.txt must
+# list exact versions with hashes (generated on the staging machine); until then this step fails.
+RUN python3.11 -m pip install --no-index --find-links=/app/wheels --require-hashes -r /app/requirements-runtime.txt
+
+# ── Artifact SHA-256 verification at build time ───────────────────────────
+# Verifies all bundled artifacts against corpus_manifest.lock.
+# Build fails if any checksum mismatches.
+# --release: fails on a mismatch, a missing file, an empty manifest or any PENDING entry.
+RUN python3.11 scripts/check_checksums.py --release
+
+# ── Profile and logs directories ──────────────────────────────────────────
+RUN mkdir -p /home/appuser/.airgap-translator/profiles \
+             /home/appuser/.airgap-translator \
+             /app/logs && \
+    chown -R appuser:0 /home/appuser/.airgap-translator /app/logs && \
+    chmod 700 /home/appuser/.airgap-translator/profiles
+
+# ── Switch to non-root user ────────────────────────────────────────────────
+USER appuser
+
+# ── Expose loopback port ───────────────────────────────────────────────────
+EXPOSE 8080
+
+# ── Health check ──────────────────────────────────────────────────────────
+HEALTHCHECK --interval=30s --timeout=5s --start-period=35s --retries=3 \
+  CMD python3.11 scripts/healthcheck.py || exit 1
+
+# ── Entry point ────────────────────────────────────────────────────────────
+CMD ["python3.11", "app.py"]

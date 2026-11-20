@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}About & Licences — Latin Translator{% endblock %}
+{% block content %}
+<section>
+  <h2>About &amp; Licences</h2>
+
+  <h3>Application</h3>
+  <p><strong>Air-Gapped Adaptive Latin Translation &amp; Pedagogical System</strong><br>
+  Version 1.0.0 — Offline · Secure · FIPS 140-3</p>
+
+  <h3>Bundled Corpus Sources &amp; Licences</h3>
+  <table>
+    <thead>
+      <tr><th scope="col">Artifact</th><th scope="col">Licence</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Perseus Digital Library Latin excerpts</td><td>CC BY-SA 3.0</td></tr>
+      <tr><td>Latin Vulgate Bible parallel text</td><td>Public Domain</td></tr>
+      <tr><td>Leipzig LatinISE corpus</td><td>CC BY</td></tr>
+      <tr><td>Whitaker's Words dictionary data</td><td>Public Domain</td></tr>
+      <tr><td>Google mT5-small base weights</td><td>Apache 2.0</td></tr>
+      <tr><td>DejaVu Sans / FreeSerif fonts</td><td>GPL with font exception</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Fine-Tuned Checkpoint</h3>
+  <p>The <code>mt5-latin</code> checkpoint is an internal derivative artifact produced
+  by fine-tuning Google's mT5-small base weights on the corpus sources listed above.
+  It is not redistributed under any external licence.</p>
+</section>
+{% endblock %}

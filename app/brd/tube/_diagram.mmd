@@ -1,0 +1,202 @@
+%%{init: {'flowchart': {'defaultRenderer': 'elk', 'curve': 'linear'}, 'themeVariables': {'fontSize':'14px'}}}%%
+flowchart LR
+  subgraph Z0["ZONE 0 · Spike and decisions"]
+    FEAT01("FEAT-01 Run-mode reachability spike"):::station
+    FEAT02("FEAT-02 Decision closure"):::station
+    FEAT03("FEAT-03 Gap reproduction tests"):::station
+    FEAT44("FEAT-44 Document suite upkeep"):::station
+    FEAT45("FEAT-45 BRD generator and traceability"):::station
+  end
+  subgraph Z1["ZONE 1 · Close code gaps"]
+    FEAT04("FEAT-04 Token once and single session"):::station
+    FEAT05("FEAT-05 CSRF, cookie and headers"):::station
+    FEAT06("FEAT-06 Bind, port, timeout, config, shutdown"):::station
+    FEAT07("FEAT-07 Logging without secrets"):::station
+    FEAT08("FEAT-08 Real confidence and fallback"):::station
+    FEAT09("FEAT-09 Checkpoint verified at load"):::station
+    FEAT10("FEAT-10 Explicit direction and prefix framing"):::station
+    FEAT11("FEAT-11 LA to EN pipeline and grammar rules"):::station
+    FEAT12("FEAT-12 Token cap on model tokens"):::station
+    FEAT13("FEAT-13 Levels and persistence"):::station
+    FEAT14("FEAT-14 Header level selector"):::station
+    FEAT15("FEAT-15 Sanitiser review"):::station
+    FEAT16("FEAT-16 Corpus import route"):::station
+    FEAT17("FEAT-17 Profile management"):::station
+    FEAT18("FEAT-18 Migration and integrity at startup"):::station
+    FEAT19("FEAT-19 Telemetry, feedback, clear"):::station
+    FEAT20("FEAT-20 Adaptation targets"):::station
+    FEAT21("FEAT-21 Phonetic mapping"):::station
+    FEAT22("FEAT-22 Modes, no-file export, interrupt"):::station
+    FEAT23("FEAT-23 Layouts and macrons"):::station
+    FEAT24("FEAT-24 In-memory, paper size, margins"):::station
+    FEAT25("FEAT-25 WCAG Level A"):::station
+    FEAT46("FEAT-46 Standards matrix upkeep"):::station
+  end
+  subgraph Z2["ZONE 2 · Build, gate and assure"]
+    FEAT26("FEAT-26 About page, badge, machine label"):::station
+    FEAT27("FEAT-27 Strict and lenient modes wired"):::station
+    FEAT28("FEAT-28 Corpus fetch and filter records"):::station
+    FEAT29("FEAT-29 Reproducible fine-tune"):::station
+    FEAT30("FEAT-30 Two quality gates"):::station
+    FEAT31("FEAT-31 Escalation and manifest"):::station
+    FEAT32("FEAT-32 Pinned wheelhouse, no network"):::station
+    FEAT33("FEAT-33 FIPS assertion and checksum gate"):::station
+    FEAT34("FEAT-34 Hardened image"):::station
+    FEAT35("FEAT-35 Run line and health check"):::station
+    FEAT40("FEAT-40 Secure by Design evidence"):::station
+    FEAT41("FEAT-41 AI assurance records"):::station
+  end
+  subgraph Z3["ZONE 3 · Operate and release"]
+    FEAT36("FEAT-36 Backup, retention, restore"):::station
+    FEAT37("FEAT-37 auditd rules"):::station
+    FEAT38("FEAT-38 Update, media and rollback"):::station
+    FEAT39("FEAT-39 SLA measurement"):::station
+    FEAT42("FEAT-42 Language-guide conformance"):::station
+    FEAT43("FEAT-43 Information asset and privacy"):::station
+    FEAT47("FEAT-47 Acceptance run and compliance gate"):::station
+  end
+  BV01[["BV-01 Trustworthy offline translation"]]:::terminal
+  BV02[["BV-02 Isolated, secure runtime"]]:::terminal
+  BV03[["BV-03 Verified supply chain"]]:::terminal
+  BV04[["BV-04 Learning that adapts"]]:::terminal
+  BV05[["BV-05 Safe, recoverable data"]]:::terminal
+  BV06[["BV-06 Honest, standards-mapped assurance"]]:::terminal
+  BV07[["BV-07 Operable and supportable"]]:::terminal
+  FEAT01 --> FEAT02
+  FEAT02 --> FEAT03
+  FEAT03 --> BV02
+  FEAT03 --> BV06
+  FEAT04 --> FEAT05
+  FEAT05 --> FEAT06
+  FEAT06 --> FEAT07
+  FEAT07 --> BV02
+  FEAT08 --> FEAT09
+  FEAT09 --> FEAT10
+  FEAT10 --> FEAT11
+  FEAT11 --> FEAT12
+  FEAT12 --> BV01
+  FEAT12 --> BV03
+  FEAT13 --> FEAT14
+  FEAT14 --> BV04
+  FEAT14 --> BV01
+  FEAT15 --> FEAT16
+  FEAT16 --> BV02
+  FEAT16 --> BV04
+  FEAT17 --> FEAT18
+  FEAT18 --> FEAT19
+  FEAT19 --> FEAT20
+  FEAT20 --> BV04
+  FEAT20 --> BV05
+  FEAT21 --> FEAT22
+  FEAT22 --> BV04
+  FEAT23 --> FEAT24
+  FEAT24 --> BV04
+  FEAT25 --> FEAT26
+  FEAT26 --> FEAT27
+  FEAT27 --> BV04
+  FEAT27 --> BV06
+  FEAT28 --> FEAT29
+  FEAT29 --> FEAT30
+  FEAT30 --> FEAT31
+  FEAT31 --> BV01
+  FEAT31 --> BV03
+  FEAT32 --> FEAT33
+  FEAT33 --> FEAT34
+  FEAT34 --> FEAT35
+  FEAT35 --> BV03
+  FEAT35 --> BV02
+  FEAT36 --> FEAT37
+  FEAT37 --> FEAT38
+  FEAT38 --> FEAT39
+  FEAT39 --> BV05
+  FEAT39 --> BV07
+  FEAT40 --> FEAT41
+  FEAT41 --> FEAT42
+  FEAT42 --> FEAT43
+  FEAT43 --> BV06
+  FEAT44 --> FEAT45
+  FEAT45 --> FEAT46
+  FEAT46 --> FEAT47
+  FEAT47 --> BV06
+  FEAT47 --> BV07
+  FEAT01 -.-> FEAT35
+  FEAT03 -.-> FEAT04
+  FEAT09 -.-> FEAT33
+  FEAT08 -.-> FEAT30
+  FEAT30 -.-> FEAT31
+  FEAT32 -.-> FEAT33
+  FEAT18 -.-> FEAT36
+  FEAT29 -.-> FEAT30
+  FEAT35 -.-> FEAT38
+  FEAT41 -.-> FEAT47
+  FEAT39 -.-> FEAT47
+  linkStyle 0 stroke:#e6194b,stroke-width:3px
+  linkStyle 1 stroke:#e6194b,stroke-width:3px
+  linkStyle 2 stroke:#e6194b,stroke-width:3px
+  linkStyle 3 stroke:#e6194b,stroke-width:3px
+  linkStyle 4 stroke:#3cb44b,stroke-width:3px
+  linkStyle 5 stroke:#3cb44b,stroke-width:3px
+  linkStyle 6 stroke:#3cb44b,stroke-width:3px
+  linkStyle 7 stroke:#3cb44b,stroke-width:3px
+  linkStyle 8 stroke:#4363d8,stroke-width:3px
+  linkStyle 9 stroke:#4363d8,stroke-width:3px
+  linkStyle 10 stroke:#4363d8,stroke-width:3px
+  linkStyle 11 stroke:#4363d8,stroke-width:3px
+  linkStyle 12 stroke:#4363d8,stroke-width:3px
+  linkStyle 13 stroke:#4363d8,stroke-width:3px
+  linkStyle 14 stroke:#f58231,stroke-width:3px
+  linkStyle 15 stroke:#f58231,stroke-width:3px
+  linkStyle 16 stroke:#f58231,stroke-width:3px
+  linkStyle 17 stroke:#911eb4,stroke-width:3px
+  linkStyle 18 stroke:#911eb4,stroke-width:3px
+  linkStyle 19 stroke:#911eb4,stroke-width:3px
+  linkStyle 20 stroke:#008080,stroke-width:3px
+  linkStyle 21 stroke:#008080,stroke-width:3px
+  linkStyle 22 stroke:#008080,stroke-width:3px
+  linkStyle 23 stroke:#008080,stroke-width:3px
+  linkStyle 24 stroke:#008080,stroke-width:3px
+  linkStyle 25 stroke:#9a6324,stroke-width:3px
+  linkStyle 26 stroke:#9a6324,stroke-width:3px
+  linkStyle 27 stroke:#800000,stroke-width:3px
+  linkStyle 28 stroke:#800000,stroke-width:3px
+  linkStyle 29 stroke:#808000,stroke-width:3px
+  linkStyle 30 stroke:#808000,stroke-width:3px
+  linkStyle 31 stroke:#808000,stroke-width:3px
+  linkStyle 32 stroke:#808000,stroke-width:3px
+  linkStyle 33 stroke:#000075,stroke-width:3px
+  linkStyle 34 stroke:#000075,stroke-width:3px
+  linkStyle 35 stroke:#000075,stroke-width:3px
+  linkStyle 36 stroke:#000075,stroke-width:3px
+  linkStyle 37 stroke:#000075,stroke-width:3px
+  linkStyle 38 stroke:#f032e6,stroke-width:3px
+  linkStyle 39 stroke:#f032e6,stroke-width:3px
+  linkStyle 40 stroke:#f032e6,stroke-width:3px
+  linkStyle 41 stroke:#f032e6,stroke-width:3px
+  linkStyle 42 stroke:#f032e6,stroke-width:3px
+  linkStyle 43 stroke:#469990,stroke-width:3px
+  linkStyle 44 stroke:#469990,stroke-width:3px
+  linkStyle 45 stroke:#469990,stroke-width:3px
+  linkStyle 46 stroke:#469990,stroke-width:3px
+  linkStyle 47 stroke:#469990,stroke-width:3px
+  linkStyle 48 stroke:#e6a817,stroke-width:3px
+  linkStyle 49 stroke:#e6a817,stroke-width:3px
+  linkStyle 50 stroke:#e6a817,stroke-width:3px
+  linkStyle 51 stroke:#e6a817,stroke-width:3px
+  linkStyle 52 stroke:#555555,stroke-width:3px
+  linkStyle 53 stroke:#555555,stroke-width:3px
+  linkStyle 54 stroke:#555555,stroke-width:3px
+  linkStyle 55 stroke:#555555,stroke-width:3px
+  linkStyle 56 stroke:#555555,stroke-width:3px
+  linkStyle 57 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  linkStyle 58 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  linkStyle 59 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  linkStyle 60 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  linkStyle 61 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  linkStyle 62 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  linkStyle 63 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  linkStyle 64 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  linkStyle 65 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  linkStyle 66 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  linkStyle 67 stroke:#555555,stroke-width:3px,stroke-dasharray:5 3
+  classDef station fill:#fff,stroke:#333,stroke-width:2px
+  classDef terminal fill:#222,color:#fff,stroke:#000

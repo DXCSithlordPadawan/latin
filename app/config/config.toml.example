@@ -1,0 +1,54 @@
+# ==============================================================================
+# config.toml.example — Canonical reference for all application configuration
+# Copy this file to config.toml for a new deployment.
+# Every key is listed with its type, default, valid range, and description.
+# This file must remain in sync with the application code at all times.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# [server] — HTTP server settings
+# ------------------------------------------------------------------------------
+[server]
+
+# Port the loopback HTTP server listens on.
+# Type: integer  Default: 8080  Range: 1024–65535
+port = 8080
+
+# Address the server binds to INSIDE the container.
+#   "127.0.0.1" (default, PRD 4.7): reachable only from the container's own loopback.
+#   "0.0.0.0": only for the run-line spike (docs/spike-run-line.md, option B) on an internal
+#              Podman network with no outbound route. Using it needs a PRD decision (FR-UI-01).
+# Type: string  Default: "127.0.0.1"  Accepted: "127.0.0.1", "0.0.0.0"
+bind = "127.0.0.1"
+
+# Idle session expiry in minutes. Sessions that receive no authenticated
+# HTTP request within this window are invalidated; the next request receives
+# HTTP 401.
+# Type: integer  Default: 60  Range: 5–1440
+session_timeout_minutes = 60
+
+# ------------------------------------------------------------------------------
+# [pdf] — PDF generation settings
+# ------------------------------------------------------------------------------
+[pdf]
+
+# Output paper size for all generated PDFs.
+# Type: string  Default: "A4"  Accepted: "A4", "Letter"
+paper_size = "A4"
+
+# Margin width in millimetres applied to all four sides of every generated PDF.
+# Type: integer  Default: 20  Range: 10–40
+margin_mm = 20
+
+# ------------------------------------------------------------------------------
+# [tts] — Text-to-speech settings
+# ------------------------------------------------------------------------------
+[tts]
+
+# Audio output behaviour for TTS synthesis.
+#   playback — audio rendered to system audio device; no file written to disk.
+#   export   — audio served as HTTP download (Content-Disposition: attachment);
+#              no file written to container filesystem.
+#   both     — simultaneously plays to audio device AND serves HTTP download.
+# Type: string  Default: "playback"  Accepted: "playback", "export", "both"
+output_mode = "playback"

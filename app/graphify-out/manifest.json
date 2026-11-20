@@ -1,0 +1,602 @@
+{
+  ".airgap-translator/app.py": {
+    "mtime": 1795177134.178804,
+    "ast_hash": "06c4beb9a7893eaa841cbfa7b3c7e844",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/latin.json": {
+    "mtime": 1780924925.0933707,
+    "ast_hash": "a7eace97ba439481eff6e351840de5b2",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/__init__.py": {
+    "mtime": 1780919915.0408914,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/barbarian.py": {
+    "mtime": 1780918913.1015282,
+    "ast_hash": "08911bede7d0d7e621b082c86ea5e99d",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/config_loader.py": {
+    "mtime": 1780919147.9244106,
+    "ast_hash": "d63d2afa3cdac4c0c7449c55b347bb8b",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/db_migrate.py": {
+    "mtime": 1795177197.4087846,
+    "ast_hash": "9f0b90b1a609eb6686411487fa696775",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/la_en_pipeline.py": {
+    "mtime": 1780918963.0627382,
+    "ast_hash": "826037ef014ff12f5bab5ceecb5e0857",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/migrations/001.sql": {
+    "mtime": 1780918569.4394512,
+    "ast_hash": "69ead000fb0a4bcb0f059c293296179f",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/morphological.py": {
+    "mtime": 1795177550.9783874,
+    "ast_hash": "ac514c5a7deb891eb82da7d8ea3a0963",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/output_postprocessor.py": {
+    "mtime": 1780918948.1094787,
+    "ast_hash": "4a05a257f4c81f3c838c87d70ddefd8f",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/pdf_factory.py": {
+    "mtime": 1780923064.0143168,
+    "ast_hash": "e439a655dcbeb188ec9350c54b7b4eba",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/phonetic_mapper.py": {
+    "mtime": 1780919024.6284997,
+    "ast_hash": "fec4c4d210a6900d22dc96d02ab6aaa4",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/prefix_router.py": {
+    "mtime": 1780918883.7030163,
+    "ast_hash": "640738cfd6aca23e806de593594f6b28",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/profile_manager.py": {
+    "mtime": 1795177115.4782462,
+    "ast_hash": "0f35bc6f48a54e3f54f81de669fa5d4a",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/reading_age.py": {
+    "mtime": 1780918902.1829872,
+    "ast_hash": "8ecaee8236ca9ad1a676056af63b3a2c",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/sanitiser.py": {
+    "mtime": 1780918631.2744527,
+    "ast_hash": "8a0dab7d1abaf9843152a030271fa3ed",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/translation_engine.py": {
+    "mtime": 1795176842.927789,
+    "ast_hash": "8e3e58ae361a5de7b9c841089287f545",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/engine/tts_engine.py": {
+    "mtime": 1780919047.8349624,
+    "ast_hash": "f4a9858058052963eaca06def5927fe5",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/scripts/check_checksums.py": {
+    "mtime": 1795177526.379056,
+    "ast_hash": "a25cae27a8921a502fc1306b67aea140",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/scripts/eval_chrf.py": {
+    "mtime": 1780918831.6263375,
+    "ast_hash": "8b03c2b09b0c068c0c6271a3c96af89f",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/scripts/fetch_corpus.sh": {
+    "mtime": 1780918754.5870273,
+    "ast_hash": "b3421061dca58c5ccb1710f40cd2c4fb",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/scripts/finetune_mt5.py": {
+    "mtime": 1780918801.6744502,
+    "ast_hash": "806b8b11f17d36f4a4f0e850dc0760e1",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/scripts/prepare_training_data.py": {
+    "mtime": 1780918785.5161567,
+    "ast_hash": "0f7b629705cf55d763356f9582354df8",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/scripts/verify_checkpoint.py": {
+    "mtime": 1780918815.3963103,
+    "ast_hash": "92757806e4152e3e5be43500b23948c8",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/static/js/main.js": {
+    "mtime": 1795177161.8083172,
+    "ast_hash": "5ae1cc96400935d6cc8e4d2959c26ad7",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/__init__.py": {
+    "mtime": 1780919916.067708,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/conftest.py": {
+    "mtime": 1780919917.1618676,
+    "ast_hash": "a2e136577ceb4a8b945aa494044cfdb2",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_adaptive_learning.py": {
+    "mtime": 1780920326.0559335,
+    "ast_hash": "04cf275b3641dcde529ebf1e9a0e5c00",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_auth_session.py": {
+    "mtime": 1780920100.2048643,
+    "ast_hash": "53af2443f85d971bc08a754a92233c30",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_container_integrity.py": {
+    "mtime": 1780919539.3849852,
+    "ast_hash": "4f7f927fe7dc1fdea6fc5c391acbef59",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_error_handling.py": {
+    "mtime": 1780919522.5613046,
+    "ast_hash": "d73329284af4d330dbe5b100ce6ecd1c",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_gaps_stage0.py": {
+    "mtime": 1795177561.247992,
+    "ast_hash": "192df295457c9e0b930cda2087bf319a",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_input_sanitisation.py": {
+    "mtime": 1780918683.8984127,
+    "ast_hash": "a0efd6c05706d77ee7e688333392277c",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_pdf.py": {
+    "mtime": 1795177162.224859,
+    "ast_hash": "f22f1030ebc44ef1f6b741866ff693ed",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_port_startup.py": {
+    "mtime": 1780919475.5525482,
+    "ast_hash": "c9a2e3c3efec01eab2fb02999878774e",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_reading_age.py": {
+    "mtime": 1780919101.9198,
+    "ast_hash": "5b4ca7e25f7fe39c463bb5e600bb7442",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_schema_migration.py": {
+    "mtime": 1780918657.6648653,
+    "ast_hash": "45333a5f34371be1c077e36abb267c80",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_translation_engine.py": {
+    "mtime": 1780919077.20039,
+    "ast_hash": "a003fd307eb283541877bf3f880b851e",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tests/test_tts.py": {
+    "mtime": 1780919127.940817,
+    "ast_hash": "2b3c798ae3ececda3ee1c9dc25428326",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tools/fix_supporting_docs.py": {
+    "mtime": 1795175704.2968037,
+    "ast_hash": "073069daca7b33c099984d990b845247",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tools/gen_brd.py": {
+    "mtime": 1795175925.4913716,
+    "ast_hash": "8eeadf6660b178624d45284ea7097345",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/tools/gen_components.py": {
+    "mtime": 1795177822.4002972,
+    "ast_hash": "9f7ddc4b9853e542881e4e77eca85f54",
+    "semantic_hash": ""
+  },
+  ".claude/settings.json": {
+    "mtime": 1785854040.080461,
+    "ast_hash": "07c4f16c3180ea8d527ecb3cbed9783e",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/README.md": {
+    "mtime": 1795177839.5671575,
+    "ast_hash": "b70c97caea914422a15995fa55ecbca9",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/latin_BVM.md": {
+    "mtime": 1795177839.5277755,
+    "ast_hash": "a4df75a04ccc9a99805e943064ef7614",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/latin_epics.md": {
+    "mtime": 1795177839.5418446,
+    "ast_hash": "6b6d548fa47a03bd3e98df68a6a4eead",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/latin_features.md": {
+    "mtime": 1795177839.548143,
+    "ast_hash": "555bfba3788cf53f899361d4451ecd51",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/latin_personas.md": {
+    "mtime": 1795177839.532848,
+    "ast_hash": "19d661d1fccf8b3585b9ea3e6a273471",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/latin_plan.md": {
+    "mtime": 1795177839.5631578,
+    "ast_hash": "645ba47cf80e62e4b8d9c722abcfc3b8",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/latin_reqs.md": {
+    "mtime": 1795177839.537846,
+    "ast_hash": "ab6e670d503df1617d23e3112a2a9ea6",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/latin_stories.md": {
+    "mtime": 1795177839.552174,
+    "ast_hash": "c83fdaad0b9c268feda6cc310c70dbd1",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/latin_tasks.md": {
+    "mtime": 1795177839.5565634,
+    "ast_hash": "bbb9004bf2d4626525417efdce781f0e",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/tube/tube-map-links.md": {
+    "mtime": 1795177839.578178,
+    "ast_hash": "06809ab1836144c5ca4dd6a020c4eb33",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/brd/tube/tube-map.md": {
+    "mtime": 1795177839.5751586,
+    "ast_hash": "9611e1e248a02c4c90aa324e086f9115",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/config/finetune_config.yaml": {
+    "mtime": 1780918555.2529182,
+    "ast_hash": "44d7c9584d9d04c8a2636debb40cfba0",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-01-Architecture-Guide.md": {
+    "mtime": 1795177822.3466232,
+    "ast_hash": "4dfccdb4449ae34f310e18e5c396e3dd",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-02-User-Guide.md": {
+    "mtime": 1795175394.923814,
+    "ast_hash": "fdde75a7b0300b6195356ea207a931b2",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-03-API-and-Interface-Guide.md": {
+    "mtime": 1795177301.650357,
+    "ast_hash": "5d7387149c1975f9d48ecd09e496973e",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-04-Support-Tasks.md": {
+    "mtime": 1795175409.3478308,
+    "ast_hash": "187607b72c028648205ee033047f39ea",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-05-RACI.md": {
+    "mtime": 1795175412.2750144,
+    "ast_hash": "a8a825ff362f054db603c4c356744e7b",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-06-RBAC.md": {
+    "mtime": 1795175414.3474274,
+    "ast_hash": "87b47c05792af4a3cb4fd6cdc9b39f88",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-07-Security-Analysis-and-Compliance.md": {
+    "mtime": 1795177609.3614814,
+    "ast_hash": "214f96b550b939a3040c79f4e43d5a87",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-08-Maintenance-Guide.md": {
+    "mtime": 1795175518.258626,
+    "ast_hash": "09f609f3b193833dbc0e5d44edef2e40",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-09-Deployment-Guide.md": {
+    "mtime": 1795175519.999627,
+    "ast_hash": "82f55ea56da0a5589f95c5e78899dbf1",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-10-User-Interface-Guide.md": {
+    "mtime": 1795175521.8709958,
+    "ast_hash": "4dffaad44660c305a9b44dfe309a1c07",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-11-Podman-Container-Build-Guide.md": {
+    "mtime": 1795177822.3202677,
+    "ast_hash": "ed0b673aa2dc8ef47bc1f5c1b27e3a03",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-12-Staging-Model-Build-Guide.md": {
+    "mtime": 1795177822.336364,
+    "ast_hash": "11fc245a3ed79dca9bec76a7e1b41348",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-13-User-Acceptance-Tests.md": {
+    "mtime": 1795177609.3679948,
+    "ast_hash": "2b849ecaa25187b7f91e15e1536de2b3",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-14-EAIT.md": {
+    "mtime": 1795177609.3755798,
+    "ast_hash": "a4fe6a58d0b700cb545d4a30de201ae7",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/DOC-15-Artifact-Collection-Guide.md": {
+    "mtime": 1795177822.3242807,
+    "ast_hash": "182385ae577a08a8d7e570cc54072bb4",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/README.md": {
+    "mtime": 1795175653.072611,
+    "ast_hash": "d22b196c9b779d1e26dfdc91a6e3454f",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/adaptive_learning_schema.md": {
+    "mtime": 1795175730.3525522,
+    "ast_hash": "e110692de1d900566739b4717d8ee25d",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/API_GUIDE.md": {
+    "mtime": 1780919732.7739763,
+    "ast_hash": "7bd71bd6725d345338b51f75edab8a07",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/ARCHITECTURE_GUIDE.md": {
+    "mtime": 1780919621.9358728,
+    "ast_hash": "c43c831a684efc13b1e9905179175791",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/CONTAINER_BUILD_GUIDE.md": {
+    "mtime": 1780919783.7464669,
+    "ast_hash": "75bd8403b2b8121da2c9f2e890a7fc27",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/DEPLOYMENT_GUIDE.md": {
+    "mtime": 1780919673.1413298,
+    "ast_hash": "e49ef1c4d8ff9f2fd2e42127bb623d86",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/DOCUMENTATION_INDEX.md": {
+    "mtime": 1780919591.167665,
+    "ast_hash": "854b0e731524926a9a19f02c489f927b",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/MAINTENANCE_GUIDE.md": {
+    "mtime": 1780919764.7718103,
+    "ast_hash": "bce192e50a5a14d9c35549e9d645d8da",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/RACI.md": {
+    "mtime": 1780919807.2998533,
+    "ast_hash": "18fe765cc83491bb2c937227d69c3251",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/RBAC.md": {
+    "mtime": 1780919798.1140912,
+    "ast_hash": "4bd5c6c1b98ca7933bf7f58ff3cabbaa",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/SECURITY_COMPLIANCE.md": {
+    "mtime": 1780919649.3280323,
+    "ast_hash": "b02c129530c14d626b2ccd375b0412d9",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/SUPPORT_TASKS.md": {
+    "mtime": 1780919750.028644,
+    "ast_hash": "c839ede7649b196ff308e3fea9dc926b",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/UI_GUIDE.md": {
+    "mtime": 1780919711.3668065,
+    "ast_hash": "802431d588aaee613b8fc0c5c22fd769",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/USER_GUIDE.md": {
+    "mtime": 1780919694.0647588,
+    "ast_hash": "597fc3ee8bd269fabffbffd1321c4424",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/archive-v1/architecture.md": {
+    "mtime": 1780919911.4372756,
+    "ast_hash": "4ece1394eccdfc7691a3de7201dbdf0d",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/component-register.md": {
+    "mtime": 1795177839.1339488,
+    "ast_hash": "1579c25fc657c8333cda28486bfb557a",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/Config-Architecture.md": {
+    "mtime": 1795177839.0789652,
+    "ast_hash": "3b9e681428b264aadd9e0c8bd9fe2698",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/Container-Architecture.md": {
+    "mtime": 1795177839.117689,
+    "ast_hash": "42351eea60c4abe01f082cdbb78e7dda",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/Migration-Architecture.md": {
+    "mtime": 1795177839.117689,
+    "ast_hash": "6bb53b6bc6c5cf74d50c10d1d76c1669",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/Morphology-Architecture.md": {
+    "mtime": 1795177839.0938642,
+    "ast_hash": "569297c840ef89c9c27a477f980a1f7f",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/PDF-Architecture.md": {
+    "mtime": 1795177839.107191,
+    "ast_hash": "6c05fc2605203084b3e12bf9e278127f",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/Profiles-Architecture.md": {
+    "mtime": 1795177839.1121497,
+    "ast_hash": "03be76c256c34640873e5e7611e604c5",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/README.md": {
+    "mtime": 1795177839.130937,
+    "ast_hash": "4b709289c8f1098a815744b17cab3cfc",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/ReadingAge-Architecture.md": {
+    "mtime": 1795177839.0981872,
+    "ast_hash": "9675f777df6e30c6800eb44d14287457",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/Sanitiser-Architecture.md": {
+    "mtime": 1795177839.0789652,
+    "ast_hash": "46497c786ab79e615318df30735af5fc",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/Staging-Architecture.md": {
+    "mtime": 1795177839.1232722,
+    "ast_hash": "9c7c1191d31611f07ec67a0d17d62734",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/TTS-Architecture.md": {
+    "mtime": 1795177839.1031928,
+    "ast_hash": "57251c4c78bb79e7266d02ad6c89cfd1",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/Translation-Architecture.md": {
+    "mtime": 1795177839.0895433,
+    "ast_hash": "6ccf1d767193905b9d64c947118e2003",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/components/Web-Auth-Architecture.md": {
+    "mtime": 1795177839.0780423,
+    "ast_hash": "1104440838d1bc539aee59ef399e8b12",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/deployment_checklist.md": {
+    "mtime": 1795177822.356708,
+    "ast_hash": "4d4dff2df6e45b9ce9569716d0fa2595",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/finetuning_procedure.md": {
+    "mtime": 1795175730.3638284,
+    "ast_hash": "587fab744e8525fbb3c22773bf82789c",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/fips_verification.md": {
+    "mtime": 1795175730.3683414,
+    "ast_hash": "5bf55da65b591734f201b14cdd9043fe",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/input_sanitization_policy.md": {
+    "mtime": 1795175730.3599188,
+    "ast_hash": "76b3869b78607c45faa0d07771019ee5",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/spike-run-line.md": {
+    "mtime": 1795176498.0673952,
+    "ast_hash": "bba3b3929696fcaa30fab7e0f724fb73",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/docs/standards-conformance-matrix.md": {
+    "mtime": 1795175671.8384876,
+    "ast_hash": "68e1f6e94b8d902b7a7f751d3a68e08d",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/requirements-runtime.txt": {
+    "mtime": 1795177560.9114938,
+    "ast_hash": "0346595a86845f16bb08000c0be4dc20",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/rpms/README.txt": {
+    "mtime": 1795177755.0341206,
+    "ast_hash": "fa97ccf313e3c871f6508bee825552d2",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/scripts/requirements-staging.txt": {
+    "mtime": 1780918731.3150656,
+    "ast_hash": "a7002917889abf7a8418b17cf3f2bffb",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/templates/about.html": {
+    "mtime": 1780919288.9577954,
+    "ast_hash": "7b3d3426e94197bd368653b64c946895",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/templates/base.html": {
+    "mtime": 1795177161.7137177,
+    "ast_hash": "6df2c06d3521543e31234916a7e2c667",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/templates/dashboard.html": {
+    "mtime": 1795177161.7799745,
+    "ast_hash": "689a3fb1cbb4aff10249ace71559dfd1",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/templates/index.html": {
+    "mtime": 1795177161.6671948,
+    "ast_hash": "c784a2093c0474b17b1f8cbb2c0aace3",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/templates/profiles.html": {
+    "mtime": 1795177161.7526028,
+    "ast_hash": "a26231c51ae094e3c3d88ce6166f8495",
+    "semantic_hash": ""
+  },
+  ".airgap-translator/templates/result.html": {
+    "mtime": 1795177161.6750379,
+    "ast_hash": "60aab484304590ecd3ed5c75170aece9",
+    "semantic_hash": ""
+  },
+  "CLAUDE.md": {
+    "mtime": 1785854039.9819055,
+    "ast_hash": "8a6643a420fdad6bfb583523bc6cef16",
+    "semantic_hash": ""
+  },
+  "LatinApp.html": {
+    "mtime": 1788440538.1278155,
+    "ast_hash": "2c999eb5ab8bf2573f401306874598fa",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1795175989.0290434,
+    "ast_hash": "9b8d983c00919a1c1894ed1be6a33bf2",
+    "semantic_hash": ""
+  },
+  "prd.md": {
+    "mtime": 1795177822.3720057,
+    "ast_hash": "eaf47b6b9c7672106f99ff40085b0508",
+    "semantic_hash": ""
+  },
+  "progress.md": {
+    "mtime": 1795177822.3848326,
+    "ast_hash": "0833978437b6211b5e3711c7e5f659bd",
+    "semantic_hash": ""
+  },
+  "LatinTutor.png": {
+    "mtime": 1780934291.347648,
+    "ast_hash": "0782457bbc4de171c18dc75082440024",
+    "semantic_hash": ""
+  }
+}

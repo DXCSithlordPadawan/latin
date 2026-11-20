@@ -18,6 +18,8 @@
 | Version | Date | Change |
 |---|---|---|
 | 1.0.0 | 2026-06-08 | Baseline |
+| 1.1.2 | 2026-11-20 | Config key `server.bind` added (default 127.0.0.1; 0.0.0.0 only after a decision on FR-UI-01). Routes for import, rename, error mode |
+| 1.1.1 | 2026-11-20 | Base image decided: RHEL 9 UBI (Section 6.1) |
 | 1.1.0 | 2026-11-20 | Status wording changed from "Approved / Baseline" to requirements baseline with no compliance claim. Requirement identifiers added (Section 11). Standards mapping added (Section 12). Section 10 changed to the DOC-01 to DOC-15 suite. Implementation gaps recorded (Section 13). Section numbering note for 9.2 added. Web framework fixed as Flask. A run-mode reachability requirement added (FR-OPS-06) |
 
 ## 2. Performance Service Level Agreements
@@ -303,6 +305,8 @@ The following table enumerates every cryptographic operation performed by the ap
 | Backup file integrity (optional operator verification) | Manual post-backup checksum | SHA-256 | Host `sha256sum` utility (outside container scope) |
 
 **Exclusions:** The neural inference path (mT5-small tokenisation and decoding), SQLite database storage, and PDF rendering do not use cryptographic primitives and are therefore outside FIPS scope. No encryption of data at rest is applied; the security boundary is the host OS ACL layer as documented in Section 4.4.
+
+**Base image decision (2026-11-20):** RHEL 9 UBI. espeak-ng is installed from RPMs collected on staging (EPEL 9), because it is not in UBI repositories. Kernel FIPS mode is a host setting and is checked in the deployment checklist.
 
 **OpenSSL FIPS Mode Requirement:** The base container image must be built from a base that ships OpenSSL ≥ 3.0 with the FIPS provider installed and enabled (e.g., RHEL 9 UBI or Ubuntu 22.04 with the `openssl-fips` package). The Containerfile must include a build-time assertion that `openssl fips-mode-set 1` succeeds; the build must fail if it does not. This assertion is documented in `docs/fips_verification.md`.
 
@@ -665,16 +669,16 @@ Found by reading the code. They are defects against the requirements above, not 
 |---|---|---|
 | G-01 | FR-UI-03, FR-UI-04 | **Fixed in code 2026-11-20.** The token is accepted on every request and replaces the session id |
 | G-02 | FR-TRN-03 | **Fixed in code 2026-11-20.** Startup checksum check is a stub and disabled |
-| G-03 | FR-OPS-01, NFR-08, NFR-12 | FIPS step prints only; unpinned network pip fallback; checksum failure only warns |
-| G-04 | FR-OPS-01 | `shred` listed as an apt package |
+| G-03 | FR-OPS-01, NFR-08, NFR-12 | **Fixed in code 2026-11-20 (not built).** FIPS step prints only; unpinned network pip fallback; checksum failure only warns |
+| G-04 | FR-OPS-01 | **Fixed in code 2026-11-20.** `shred` listed as an apt package |
 | G-05 | FR-ADL-02 | **Fixed in code 2026-11-20.** Migration is not one transaction with rollback |
 | G-06 | FR-ERR-03 | **Fixed in code 2026-11-20.** Integrity check is not run for existing profiles at startup |
 | G-07 | FR-PRF-02 | **Fixed in code 2026-11-20.** Delete does not validate the profile identifier |
 | G-08 | FR-UI-12 | **Fixed in code 2026-11-20.** No CSRF protection or security headers |
-| G-09 | FR-ING-02, FR-ING-04, FR-PRF-01, FR-ERR-01 | Import, rename and error-mode routes are missing |
-| G-10 | FR-OPS-06 | Run line combines `--network=none` with a published port and a 127.0.0.1 bind |
-| G-11 | FR-TRN-04 | Fallback uses a dictionary heuristic, and marks every word if the data is absent |
-| G-12 | NFR-07, NFR-12 | Model, Whitaker data, fonts, wheels and validation split are absent from the tree |
+| G-09 | FR-ING-02, FR-ING-04, FR-PRF-01, FR-ERR-01 | **Fixed in code 2026-11-20** (no live chunk progress yet). Import, rename and error-mode routes are missing |
+| G-10 | FR-OPS-06 | **Open** (code prerequisites added: `server.bind`, port-aware health check). Run line combines `--network=none` with a published port and a 127.0.0.1 bind |
+| G-11 | FR-TRN-04 | **Partly fixed 2026-11-20** (missing-data case only; model-score confidence still open). Fallback uses a dictionary heuristic, and marks every word if the data is absent |
+| G-12 | NFR-07, NFR-12 | **Open** (`scripts/check_artifacts.py` reports what is missing). Model, Whitaker data, fonts, wheels and validation split are absent from the tree |
 | G-13 | FR-DOC-01 | 1.0.0 documents claimed Baseline; replaced |
 | G-14 | FR-DOC-01 | `docs/latin.json` has no stated purpose |
 
